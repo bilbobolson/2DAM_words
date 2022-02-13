@@ -1,11 +1,5 @@
 package com.pmdm.words.modelos
 
-/**
- * Antonio José Sánchez Bujaldón
- * Programación de Aplicaciones Multimedia y de Dispositivos Móviles
- * curso 2021|22
- */
-
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.pmdm.words.Constants
@@ -65,10 +59,11 @@ class Table(val rv: RecyclerView)
      * @param r: Int
      * @param word: String
      */
-    fun writeWord(r: Int, word: String)
+    fun writeWord(r: Int, word: String, color: MutableList<String> = mutableListOf())
     {
         word.forEachIndexed { index, c ->
             writeChar(r,index,c.toString())
+            if (!color.isNullOrEmpty()) setColor(r,index, color[index])
         }
     }
 

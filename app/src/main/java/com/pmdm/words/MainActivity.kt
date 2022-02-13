@@ -1,11 +1,5 @@
 package com.pmdm.words
 
-/**
- * Antonio José Sánchez Bujaldón
- * Programación de Aplicaciones Multimedia y de Dispositivos Móviles
- * curso 2021|22
- */
-
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import androidx.appcompat.app.AppCompatActivity
@@ -13,11 +7,12 @@ import android.os.Bundle
 import com.pmdm.words.adaptadores.CellAdapter
 import com.pmdm.words.databinding.ActivityMainBinding
 import com.pmdm.words.databinding.AppbarLayoutBinding
+import com.pmdm.words.modelos.Game
 import com.pmdm.words.modelos.Table
 
 class MainActivity : AppCompatActivity()
 {
-    private lateinit var adaptador: CellAdapter
+    private lateinit var game: Game
     private lateinit var binding: ActivityMainBinding
 
     /**
@@ -48,16 +43,9 @@ class MainActivity : AppCompatActivity()
             setCustomView(AppbarLayoutBinding.inflate(layoutInflater).root)
         }
 
-        var tablero: Table = Table(binding.wordsTablero)
+        // inicializamos el juego
+        game = Game(binding).apply { start() }
 
-        tablero.writeChar(1,1,"G")
-        tablero.setColor(1,1,"#34eb4c")
-        tablero.writeWord(0, "CANOA")
 
-        binding.wordsGo.setOnClickListener {
-            tablero.reset()
-            //datos[0].color = "#34eb4c"
-            //adaptador.notifyItemChanged(0)
-        }
     }
 }

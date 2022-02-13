@@ -1,11 +1,5 @@
 package com.pmdm.words.adaptadores
 
-/**
- * Antonio José Sánchez Bujaldón
- * Programación de Aplicaciones Multimedia y de Dispositivos Móviles
- * curso 2021|22
- */
-
 import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.ViewGroup
